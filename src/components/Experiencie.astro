@@ -1,0 +1,62 @@
+---
+const EXPERIENCIE = [
+    {
+        title:"QA Tester",
+        enterprise:"BITAM® de Mexico",
+        date:"Noviembre 2022 - Actualmente ...",
+        description:[
+            {
+                title:"Planificación y Ejecución de Pruebas de Calidad:",
+                description:"Desarrollo e implemento planes de pruebas para garantizar la calidad del software.Realizó pruebas exhaustivas en desarrollos personalizados para clientes."
+            },
+            {
+                title:"Uso de SQL en Validación de Datos:",
+                description:"Aplico consultas SQL para verificar y validar la integridad de los datos en la base de datos de las aplicaciones."
+            },
+            {
+                title:"Presentación de Resultados:",
+                description:"Comunico los resultados de las pruebas tanto a desarrolladores como a clientes."
+            },
+            {
+                title:"Documentación de Aplicaciones:",
+                description:"Elaboro documentación detallada sobre las aplicaciones, proporcionando información necesaria para comprender su funcionamiento"
+            }
+        ]
+    },
+    {
+        title:"Operario de Tubero de Segunda",
+        enterprise:"McDermott International, Inc.",
+        date:"Marzo de 2019 a Abril 2021",
+        description:[
+            {
+                title:"Asistencia al Sobrestante:",
+                description:"Colabore directamente con el Sobrestante para supervisar el avance del montaje y la producción de Pipe Spools."
+            },
+            {
+                title:"Registro de Horas Laboradas:",
+                description:"Documente detalladamente las horas dedicadas a cada actividad, contribuyendo a un control efectivo del tiempo."
+            },
+            {
+                title:"Desarrollo de Habilidades Organizativas:",
+                description:"Aprendizaje y aplicación de técnicas para mejorar la organización en la ejecución de tareas diarias."
+            },
+            {
+                title:"Trabajo en Equipo:",
+                description:"Adquisición de habilidades para trabajar eficazmente en un entorno colaborativo, donde la cooperación con diferentes personas es esencial."
+            }
+        ]
+    }
+]
+
+import ExperiencieItem from "./ExperiencieItem.astro"
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">                  
+    
+        {EXPERIENCIE.map((experiencie) =>(
+            <li class="mb-10 ms-4">
+                <ExperiencieItem {...experiencie} />
+            </li>
+        ))}
+</ol>
+

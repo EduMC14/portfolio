@@ -6,6 +6,7 @@ interface Props {
 const { title } = Astro.props;
 // Supports weights 100-900
 import '@fontsource-variable/onest'
+import Header from '../components/Header.astro';
 ---
 
 <!doctype html>
@@ -19,6 +20,8 @@ import '@fontsource-variable/onest'
 		<title>{title}</title>
 	</head>
 	<body>
+		<div class="absolute top-0 z-[-2] h-[2000px] w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(93,173,226,0.3),rgba(255,255,255,0))]"></div>
+		<Header />
 		<slot />
 	</body>
 </html>
@@ -30,5 +33,12 @@ import '@fontsource-variable/onest'
 		font-family: 'Onest Variable', system-ui, sans-serif;
 		background: #13151a;
 		background-size: 224px;
+	}
+	body{
+		min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overscroll-behavior: none;
 	}
 </style>

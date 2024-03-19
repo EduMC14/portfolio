@@ -7,9 +7,9 @@ const {description} = Astro.props
 <ul class="mb-4 w-[60%]" >
     {
         description.map((item: { title: string; description: string }) => (
-            <li>
-                <h5 class="pb-1 text-md font-semibold text-gray-500 dark:text-yellow-400" >{item.title}</h5>
-                <p class="text-justify text-base" >{item.description}</p>
+            <li class="lg:pl-0 pl-3">
+                <h5 class="pb-1 text-sm lg:text-md font-semibold text-gray-500 dark:text-yellow-400" >{item.title}</h5>
+                <p class="text-justify text-xs lg:text-base" >{item.description}</p>
             </li>
         ))
     }

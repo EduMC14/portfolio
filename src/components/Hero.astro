@@ -1,28 +1,28 @@
 ---
 import Badge from "../components/Badge.astro"
 ---
-<div class="flex items-center w-full lg:w-[65%]">
+<div class="flex items-center w-full lg:w-[69%]">
     <div class="w-[100%]">
 		<div class="flex mt-5 flex-col md:flex-row">
-        <div class="w-full md:w-[70%] flex items-start justify-center lg:justify-start">
-            <h1 class="flex animate-fade-up mr-1.5 text-[26px] text-gray-100 font-bold lg:text-4xl">
+        <div class="w-full md:w-[80%] flex items-start justify-center lg:justify-start">
+            <h1 class="flex animate-fade-up mr-1.5 text-[26px] text-gray-100 font-bold lg:text-5xl">
 				Hey, soy
             </h1>
-			<div class="relative w-[10rem] lg:w-[14rem]">
-				<h1 class="name-wave animate-fade-up text-[26px] text-gray-100 font-bold wave-bor lg:text-4xl">Eduardo Mar</h1>
-            	<h1 class="name-wave fade-up-wave text-gray-100  text-[26px] font-bold lg:text-4xl">Eduardo Mar</h1>
+			<div class="relative w-[10rem] lg:w-[50%]">
+				<h1 class="name-wave animate-fade-up text-[26px] text-gray-100 font-bold wave-bor lg:text-5xl">Eduardo Mar</h1>
+            <h1 class="name-wave fade-up-wave text-gray-100  text-[26px] font-bold lg:text-5xl">Eduardo Mar</h1>
 			</div>
-            <span class="icon animate-fade-up text-[26px] lg:text-4xl">🌊</span>
+            <span class="icon animate-fade-up text-[26px] lg:text-5xl">🌊</span>
             
         </div>
-        <a href="https://linkedin.com/in/midudev" target="_blank" rel="noopener" class="flex animate-fade-up justify-center transition md:hover:scale-105">
+        <a href="https://linkedin.com/in/midudev" target="_blank" rel="noopener" class="flex animate-fade-up justify-center transition md:justify-center ">
 			<Badge>Disponible para trabajar</Badge> 
 		</a>
 		</div>
         <p class="w-full animate-fade-up text-center lg:mt-10 lg:text-justify text-wrap text-base font-semibold text-gray-300 lg:w-8/12 lg:text-lg">
         Hola, Soy un Desarrollador Web de Altamira, Tamps. apasionado por la creación de sitios web accesibles y fáciles de usar.
         </p>
-        <div class="w-full lg:mt-5 my-3 flex justify-evenly items-center lg:justify-start">
+        <div class="w-full lg:mt-5 mt-6 flex justify-evenly items-center lg:justify-start">
             <button type="button" class="btn_projects animate-fade-up text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm lg:text-base lg:p-3 p-2 text-center lg:me-2 lg:mb-2"><svg class="w-5 h-5 inline-flex" fill="#000000" viewBox="0 0 24 24" id="file-code-3" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><polyline id="secondary" points="19 21 21 19 19 17" style="fill: none; stroke: #A040A0; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline><polyline id="secondary-2" data-name="secondary" points="15 17 13 19 15 21" style="fill: none; stroke: #A040A0; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline><path id="secondary-3" data-name="secondary" d="M7,13h6M7,9h6" style="fill: none; stroke: #ffffff; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><path id="primary" d="M9,21H4a1,1,0,0,1-1-1V4A1,1,0,0,1,4,3H15l2,2v8" style="fill: none; stroke: #ffffff; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path><polygon id="primary-2" data-name="primary" points="15 3 15 5 17 5 15 3" style="fill: none; stroke: #ffffff; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polygon></g></svg>
                 View my projects
             </button>
@@ -36,13 +36,16 @@ import Badge from "../components/Badge.astro"
         </div>
     </div>
 </div>
-
-
-<div class="flex justify-center items-center w-full h-full lg:w-[32%] ">
-    <img src="/Foto_port.jpeg" alt="" class="size-[15rem] animate-fade-up rounded-full lg:w-full lg:h-full lg:rounded-lg ">
+<div class="flex justify-center items-center w-full h-full lg:w-[31%] ">
+	<div class="w-full h-full flex justify-center items-center">
+		<img src="/ft-port.webp" alt="" class="size-[15rem] lg:w-[20rem] lg:h-[20rem] animate-fade-up rounded-full ">
+	</div>
+    
 </div>
 
 <style>
+	
+
 	.btn_projects{
 		border-radius:1.5rem .75rem;
 	}
@@ -122,8 +125,8 @@ import Badge from "../components/Badge.astro"
 
 
 	@media screen and (max-width:768px) {
-		.name-wave{
-		/* left: 10%; */
+		.box-relative{
+		width: 18.5rem;
 	}
 }
 </style>

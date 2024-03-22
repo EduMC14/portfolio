@@ -7,14 +7,14 @@ import Redes from "../components/Redes.astro";
 
 <Layout title="Eduardo Mar | Desarrollador Web">
   <Redes />
-  <div class="lg:flex flex-col items-center lg:fixed hidden bottom-0 right-7 ">
+  <div class="lg:flex flex-col items-center lg:fixed hidden bottom-0 right-6 ">
     <a class="writing-mode-v-rl link-sound group relative translate-x-[2px] p-0 hover:text-green-400 dark:hover:text-green-400 tracking-widest" href="mailto:cafaruoc2000@gmail.com" target="_blank" rel="noopener noreferrer">eduardomar987@gmail.com<svg class="absolute -left-[10px] -top-8 -rotate-90" width="36" height="12" viewBox="0 0 36 12" fill="none"><path d="M0.75 6H11.25 M6 0.75L11.25 6L6 11.25" class="stroke-lime-800 opacity-0 group-hover:!opacity-100 dark:stroke-lime-300" stroke-linecap="round" stroke-linejoin="round" style="transition:opacity 125ms ease 0s"></path><path class="stroke-lime-800 dark:stroke-lime-300" d="M15 10L19.5 5.5L15 1" stroke-linecap="round" stroke-linejoin="round" style="opacity:0;transition:opacity 125ms ease 0s"></path><path class="stroke-lime-800 dark:stroke-lime-300" d="M23 10L27.5 5.5L23 1" stroke-opacity="0.66" stroke-linecap="round" stroke-linejoin="round" style="opacity:0;transition:opacity 125ms ease 125ms"></path><path class="stroke-lime-800 dark:stroke-lime-300" d="M31 10L35.5 5.5L31 1" stroke-opacity="0.35" stroke-linecap="round" stroke-linejoin="round" style="opacity:0;transition:opacity 125ms ease 250ms"></path></svg></a>
   <span class="relative mt-4 block h-40 w-[2px] bg-cyan-800 dark:bg-blue-600 outline-2 outline rounded-sm shadow-[2px_-0.5px_0_1px_#00000035] dark:shadow-[2px_-0.5px_0_1px_#ffffff35]"></span>
   </div>
   
   <main class="flex flex-col justify-center items-center w-[100%] h-[100%]">
     <section
-      class=" flex flex-col-reverse w-section lg:h-[450px] h-[530px] px-5 pb-5 lg:my-5 mb-5 lg:flex-row lg:px-5"
+      class=" flex flex-col-reverse w-section lg:h-[450px] h-[530px] px-5 lg:pb-5 lg:my-5 mb-5 lg:flex-row lg:px-5"
     >
       <Hero />
     </section>
@@ -56,6 +56,14 @@ import Redes from "../components/Redes.astro";
       </div>
       <Experience />
     </section>
+    <hr
+      class="w-full h-px my-8 lg:my-20 bg-gray-200 border-0 dark:bg-gray-700"
+    />
+    <section class="flex w-section">
+      <h2 class="text-lg lg:text-3xl font-semibold">
+        Projectos
+      </h2>
+    </section>
   </main>
 </Layout>
 
@@ -65,7 +73,7 @@ import Redes from "../components/Redes.astro";
 }
 
   .w-section {
-    width: 80%;
+    width: 82.9%;
   }
 
   @media screen and (max-width: 768px) {

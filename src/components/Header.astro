@@ -2,7 +2,7 @@
 import '@fontsource/press-start-2p';
 ---
 
-<header class="flex justify-between px-2 py-2 text-gray-200 lg:px-28 lg:py-5">
+<header class="flex animate-fade-up justify-between px-2 py-2 text-gray-200 lg:px-28 lg:py-5">
 <!-- <img src="" alt="photo-portfolio"> -->
 <div class="flex items-center">
     <h2 class="name_title text-[11px] px-2 text-white lg:text-base lg:px-4">EMC</h2>
@@ -26,4 +26,21 @@ alt="icon me">
     #5DADE2 0 0 35px,
     #5DADE2 0 0 45px;
 }
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(2rem)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+.animate-fade-up {
+    animation: fade-up 1s both
+}
+
 </style>

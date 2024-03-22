@@ -1,42 +1,202 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Hero from '../components/Hero.astro'
-import Experience from '../components/Experiencie.astro'
-
-
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Experience from "../components/Experiencie.astro";
+import Redes from "../components/Redes.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-		<main class="flex flex-col justify-center items-center w-[100%] h-[100%] ">
-			<section class="flex flex-col-reverse w-section lg:h-[450px] h-[530px] px-5 pb-5 mb-5 lg:flex-row lg:px-5">
-				<Hero />
-			</section> 
-			<hr class=" w-full h-px my-8 lg:my-20 bg-gray-200 border-0 dark:bg-gray-700">
-			<section class="w-section my-5 px-5">
-				<div class="flex items-center pb-10">
-					<svg class="size-6 lg:size-8 inline mr-2 font-bold" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path><path d="M12 12l0 .01"></path><path d="M3 13a20 20 0 0 0 18 0"></path></svg>
-					<h2 class="text-lg lg:text-3xl font-semibold">Experiencia de trabajo</h2>
-				</div>
-				<Experience  />
-			</section>
-			
-		</main>	
-	
-	
+<Layout title="Eduardo Mar | Desarrollador Web">
+  <Redes />
+  <div class="lg:flex flex-col items-center lg:fixed hidden bottom-0 right-7 ">
+    <a class="writing-mode-v-rl link-sound group relative translate-x-[2px] p-0 hover:text-green-400 dark:hover:text-green-400 tracking-widest" href="mailto:cafaruoc2000@gmail.com" target="_blank" rel="noopener noreferrer">eduardomar987@gmail.com<svg class="absolute -left-[10px] -top-8 -rotate-90" width="36" height="12" viewBox="0 0 36 12" fill="none"><path d="M0.75 6H11.25 M6 0.75L11.25 6L6 11.25" class="stroke-lime-800 opacity-0 group-hover:!opacity-100 dark:stroke-lime-300" stroke-linecap="round" stroke-linejoin="round" style="transition:opacity 125ms ease 0s"></path><path class="stroke-lime-800 dark:stroke-lime-300" d="M15 10L19.5 5.5L15 1" stroke-linecap="round" stroke-linejoin="round" style="opacity:0;transition:opacity 125ms ease 0s"></path><path class="stroke-lime-800 dark:stroke-lime-300" d="M23 10L27.5 5.5L23 1" stroke-opacity="0.66" stroke-linecap="round" stroke-linejoin="round" style="opacity:0;transition:opacity 125ms ease 125ms"></path><path class="stroke-lime-800 dark:stroke-lime-300" d="M31 10L35.5 5.5L31 1" stroke-opacity="0.35" stroke-linecap="round" stroke-linejoin="round" style="opacity:0;transition:opacity 125ms ease 250ms"></path></svg></a>
+  <span class="relative mt-4 block h-40 w-[2px] bg-cyan-800 dark:bg-blue-600 outline-2 outline rounded-sm shadow-[2px_-0.5px_0_1px_#00000035] dark:shadow-[2px_-0.5px_0_1px_#ffffff35]"></span>
+  </div>
+  
+  <main class="flex flex-col justify-center items-center w-[100%] h-[100%]">
+    <section
+      class=" flex flex-col-reverse w-section lg:h-[450px] h-[530px] px-5 pb-5 lg:my-5 mb-5 lg:flex-row lg:px-5"
+    >
+      <Hero />
+    </section>
+    <hr
+      class="w-full h-px my-8 lg:my-20 bg-gray-200 border-0 dark:bg-gray-700"
+    />
+    <section class="w-section my-5 px-5">
+      <div class="flex justify-between items-center pb-10">
+        <div class="flex items-center">
+          <svg
+            class="size-6 lg:size-8 inline mr-2 font-bold"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+            ></path><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"
+            ></path><path d="M12 12l0 .01"></path><path
+              d="M3 13a20 20 0 0 0 18 0"></path></svg
+          >
+          <h2 class="text-lg lg:text-3xl font-semibold">
+            Experiencia de trabajo
+          </h2>
+        </div>
+        <a
+          href="#"
+          title="Descargar Resumen "
+          class="BtnResume_button__8oUuT lg:text-sm text-xs font-medium lg:font-semibold shadow-[0.125rem_0.125rem_0_0_rgba(0,_0,_0,_0.35)] dark:shadow-[0.125rem_0.125rem_0_0_rgba(255,_255,_255,_0.35)] outline-2 outline outline-white dark:outline-black border-[2px] border-black dark:border-white after:border-[2px] after:border-black after:border-solid after:outline-2 after:outline after:outline-white dark:after:border-white dark:after:outline-black"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Downland CV
+        </a>
+      </div>
+      <Experience />
+    </section>
+  </main>
 </Layout>
 
 <style>
-	.w-section{
-		width: 80%;
-	}
+  .writing-mode-v-rl {
+    writing-mode: vertical-rl
+}
 
-	@media screen and (max-width:768px) {
-		.w-section{
-		width: 100%;
-	}
-	}
+  .w-section {
+    width: 80%;
+  }
 
-	/* .icon{
-		margin-left: 14rem;
-	} */
+  @media screen and (max-width: 768px) {
+    .w-section {
+      width: 100%;
+    }
+
+    .BtnResume_button__8oUuT {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .BtnResume_button__8oUuT {
+    --border-width: 0.125rem;
+    --noise-image: url(https://assets.codepen.io/32996/noise-250x250.png);
+    border-radius: 1.5rem 0.75rem;
+    padding: 0.65rem 1rem;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    outline-offset: -0.25rem;
+    transform: rotate(-3deg);
+    transition:
+      scale 0.25s ease-in-out,
+      -webkit-clip-path 0.25s ease-out;
+    transition:
+      scale 0.25s ease-in-out,
+      clip-path 0.25s ease-out;
+    transition:
+      scale 0.25s ease-in-out,
+      clip-path 0.25s ease-out,
+      -webkit-clip-path 0.25s ease-out;
+    text-transform: uppercase;
+    animation: BtnResume_rotate-hue__ghMdP 10s linear infinite;
+    color: #fff;
+    display: block;
+    align-self: center;
+    background-image: var(--noise-image),
+      radial-gradient(circle, rgba(0, 0, 0, 0.5) 100%, transparent 0),
+      linear-gradient(15deg, blue, #fff), linear-gradient(30deg, orange, #fff),
+      linear-gradient(45deg, lime, #fff), linear-gradient(60deg, lime, #fff),
+      linear-gradient(75deg, cyan, #fff), linear-gradient(90deg, blue, #fff),
+      linear-gradient(105deg, lime, #fff), linear-gradient(120deg, #000, #fff),
+      linear-gradient(135deg, #fff, #fff), linear-gradient(150deg, #fff, #000),
+      linear-gradient(165deg, #fff, #fff), linear-gradient(180deg, #000, #fff),
+      linear-gradient(205deg, #fff, #000), linear-gradient(220deg, lime, #fff),
+      linear-gradient(235deg, #fff, #fff), linear-gradient(250deg, #000, #fff),
+      linear-gradient(265deg, #fff, #fff),
+      linear-gradient(280deg, #fff, #fff5ee),
+      linear-gradient(295deg, #fff, #fff), linear-gradient(315deg, #fff, #fff),
+      linear-gradient(330deg, #fff, #fff), linear-gradient(345deg, #fff, #fff),
+      linear-gradient(1turn, #fff, #fff);
+    background-blend-mode: multiply, multiply, difference, overlay, difference,
+      difference, difference, difference, difference, difference, exclusion,
+      difference, multiply, difference, difference, difference, difference,
+      difference, difference, difference, difference, difference, difference,
+      difference, difference, exclusion;
+    background-size:
+      120px 0,
+      100% 100%;
+    -webkit-clip-path: polygon(
+      0 0,
+      calc(100% - 1.1875rem) 0,
+      calc(100% - 0.6732974165rem) -2.25rem,
+      calc(100% + 0.6979094728rem) calc(100% - 0.296875rem),
+      calc(100% + 0.1837068893rem) 100%,
+      0 150%
+    );
+    clip-path: polygon(
+      0 0,
+      calc(100% - 1.1875rem) 0,
+      calc(100% - 0.6732974165rem) -2.25rem,
+      calc(100% + 0.6979094728rem) calc(100% - 0.296875rem),
+      calc(100% + 0.1837068893rem) 100%,
+      0 150%
+    );
+  }
+
+  .BtnResume_button__8oUuT:hover {
+    -webkit-clip-path: polygon(
+      0 0,
+      calc(100% - 1.1875rem) 0,
+      calc(100% - 1.1875rem) 0,
+      calc(100% + 0.65rem) 100%,
+      calc(100% + 0.1837068893rem) 100%,
+      0 150%
+    );
+    clip-path: polygon(
+      0 0,
+      calc(100% - 1.1875rem) 0,
+      calc(100% - 1.1875rem) 0,
+      calc(100% + 0.65rem) 100%,
+      calc(100% + 0.1837068893rem) 100%,
+      0 150%
+    );
+    scale: 1.025;
+  }
+
+  .BtnResume_button__8oUuT:hover:active {
+    scale: 0.975;
+  }
+
+  .BtnResume_button__8oUuT:hover:after {
+    transform: rotate(-30deg) translateX(1.1875rem);
+  }
+
+  .BtnResume_button__8oUuT:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-radius: 50rem;
+    background-color: hsla(0, 0%, 100%, 0.5);
+    transition: transform 0.25s ease-out;
+    height: 2.375rem;
+    width: calc(2.375rem);
+    top: -1px;
+    right: -1px;
+    transform: rotate(-30deg) translateX(2.5rem);
+    outline-offset: -0.25rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .BtnResume_button__8oUuT {
+      animation: none;
+    }
+  }
+  @keyframes BtnResume_rotate-hue__ghMdP {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    to {
+      filter: hue-rotate(1turn);
+    }
+  }
 </style>

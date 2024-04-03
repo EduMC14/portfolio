@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Experience from "../components/Experiencie.astro";
 import Redes from "../components/Redes.astro";
+import Proyectos from "../components/Proyectos.astro";
+/* import Skills from "../components/Skills.astro" */
 ---
 
 <Layout title="Eduardo Mar | Desarrollador Web">
@@ -57,18 +59,30 @@ import Redes from "../components/Redes.astro";
       </div>
       <Experience />
     </section>
+    <!-- <hr
+      class="w-full h-px my-8 lg:my-20 bg-gray-200 border-0 dark:bg-gray-700"
+    />
+    <section class="flex flex-col justify-center w-section" id="Skills">
+      <h2 class="text-lg mx-auto mb-5 lg:text-3xl font-semibold">
+        Tech Skills
+      </h2>
+      <Skills /> 
+    </section> -->
     <hr
       class="w-full h-px my-8 lg:my-20 bg-gray-200 border-0 dark:bg-gray-700"
     />
-    <section class="flex w-section" id="projects">
-      <h2 class="text-lg lg:text-3xl font-semibold">
-        Projectos
-      </h2>
-    </section>
+    
+      <Proyectos wclass={'.w-section'} />
+    
+
+</div>
+
   </main>
+  
 </Layout>
 
 <style>
+
   .writing-mode-v-rl {
     writing-mode: vertical-rl
 }

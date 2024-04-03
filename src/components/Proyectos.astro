@@ -1,0 +1,149 @@
+---
+const proyectos = [
+  {
+    title: "Series TMDB",
+    description:"Series TMDB es un proyecto para buscar las series mas populares actualmente y las mejores calificadas, para obtener la informacion se consume la TMDB API",
+    photos:[
+        {
+          path:'tmdb1.webp',
+          height:'h-[28rem]'
+        },
+        {
+          path:'tmdb2.webp',
+          height:'h-[22rem]'
+        },
+        {
+          path:'tmdb3.webp',
+          height:'h-[25rem]'
+        }
+      ],
+    tecnologies:[
+      'React, React-Router-Dom, Bootstrap, Node-js, Vite'
+    ]
+  }
+];
+---
+<section class="flex flex-col justify-center w-section" id="projects">
+<h2
+  class="text-lg mx-auto mb-10 dark:text-gray-100 text-gray-700 lg:text-3xl font-semibold"
+>
+  Proyectos
+</h2>
+{
+  proyectos.map((item)=> (
+  <article class="w-full h-[24rem] rounded flex flex-row">
+    <div
+    id="controls-carousel"
+    class="w-[50%] h-full rounded-l-lg relative bg-img-projects"
+    data-carousel="static"
+    >
+      <div class="relative h-full overflow-hidden rounded-lg md:h-96">
+        {item.photos.map((photo,index)=>(
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <img
+          src={photo.path}
+          class={`img-car absolute block w-full aspect-[16/9] ${photo.height} -translate-x-1/2 -translate-y-1/2 left-1/2`}
+          alt="..."
+        />
+      </div>
+        ))}
+      </div>
+    <div
+      class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
+    >
+      <button
+        type="button"
+        class="w-3 h-3 rounded-full"
+        aria-current="true"
+        aria-label="Slide 1"
+        data-carousel-slide-to="0"></button>
+      <button
+        type="button"
+        class="w-3 h-3 rounded-full"
+        aria-current="false"
+        aria-label="Slide 2"
+        data-carousel-slide-to="1"></button>
+      <button
+        type="button"
+        class="w-3 h-3 rounded-full"
+        aria-current="false"
+        aria-label="Slide 3"
+        data-carousel-slide-to="2"></button>
+    </div>
+    
+    <button
+      type="button"
+      class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-prev
+    >
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+      >
+        <svg
+          class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 6 10"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 1 1 5l4 4"></path>
+        </svg>
+        <span class="sr-only">Previous</span>
+      </span>
+    </button>
+    <button
+      type="button"
+      class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-next
+    >
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+      >
+        <svg
+          class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 6 10"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m1 9 4-4-4-4"></path>
+        </svg>
+        <span class="sr-only">Next</span>
+      </span>
+    </button>
+    </div>
+    <div class="w-[50%] rounded-r-lg pl-5 pt-5 bg-neutral-900">
+    <h3 class="text-2xl font-semibold">{item.title}</h3>
+    <ul>
+
+    </ul>
+    <p class="text-gray-400 text-base leading-loose mt-3">{item.description}</p>
+  </div>
+  </article>
+  ))
+}
+</section>
+
+<style>
+  .w-section {
+    width: 82.9%;
+  }
+
+  .bg-img-projects {
+    background-image: url("/919shots_so.png");
+    background-size: cover;
+  }
+  .img-car {
+    top: 50%;
+  }
+</style>

@@ -1,4 +1,6 @@
 ---
+import Technologies from '../components/Technologies.astro'
+import ButtonsProjects from './ButtonsProjects.astro';
 const proyectos = [
   {
     title: "Series TMDB",
@@ -17,13 +19,74 @@ const proyectos = [
           height:'h-[25rem]'
         }
       ],
-    tecnologies:[
-      'React, React-Router-Dom, Bootstrap, Node-js, Vite'
+    technologies:[
+      'React',
+      'React-Router-Dom',
+      'Bootstrap',
+      'Node-js',
+      'Vite'
+    ]
+  },
+  {
+    title: "Pokedex",
+    description:"Este es un clon de un pokedex el cual utilice la PokeAPI para cargar la informacion de las cards y buscar todo los pokemonos mediante un buscador",
+    photos:[
+        {
+          path:'poke1.webp',
+          height:'h-[24rem]'
+        },
+        {
+          path:'poke2.webp',
+          height:'h-[22rem]'
+        },
+        {
+          path:'poke3.webp',
+          height:'h-[25rem]'
+        }
+      ],
+    technologies:[
+      'React',
+      'React-Router-Dom',
+      'Bootstrap',
+      'Node-js',
+      'Vite'
+    ]
+  },
+  {
+    title: "Gestion Tareas Bitam",
+    description:"Este es un proyecto el fue creado con la intencion de llevar un control de mis tareas realizadas en Bitam, verificar enn que estado se encontraban",
+    photos:[
+        {
+          path:'gse1.webp',
+          height:'h-[27rem]'
+        },
+        {
+          path:'gse2.webp',
+          height:'h-[23rem]'
+        },
+        {
+          path:'gse4.webp',
+          height:'h-[25rem]'
+        },
+        {
+          path:'gse3.webp',
+          height:'h-[23rem]'
+        }
+      ],
+    technologies:[
+      'React',
+      'React-Router-Dom',
+      'Bootstrap',
+      'Node-js',
+      'Express-js',
+      'MySql',
+      'Style-Components',
+      'Vite'
     ]
   }
 ];
 ---
-<section class="flex flex-col justify-center w-section" id="projects">
+<section class="flex flex-col justify-center rounded-lg w-section" id="projects">
 <h2
   class="text-lg mx-auto mb-10 dark:text-gray-100 text-gray-700 lg:text-3xl font-semibold"
 >
@@ -31,7 +94,7 @@ const proyectos = [
 </h2>
 {
   proyectos.map((item)=> (
-  <article class="w-full h-[24rem] rounded flex flex-row">
+  <article class="w-full mb-10 h-[24rem] rounded-lg flex flex-row box_art">
     <div
     id="controls-carousel"
     class="w-[50%] h-full rounded-l-lg relative bg-img-projects"
@@ -51,24 +114,16 @@ const proyectos = [
     <div
       class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
     >
+    {item.photos.map((photo,index) => (
       <button
         type="button"
         class="w-3 h-3 rounded-full"
         aria-current="true"
-        aria-label="Slide 1"
-        data-carousel-slide-to="0"></button>
-      <button
-        type="button"
-        class="w-3 h-3 rounded-full"
-        aria-current="false"
-        aria-label="Slide 2"
-        data-carousel-slide-to="1"></button>
-      <button
-        type="button"
-        class="w-3 h-3 rounded-full"
-        aria-current="false"
-        aria-label="Slide 3"
-        data-carousel-slide-to="2"></button>
+        aria-label={`Slide ${index}`}
+        data-carousel-slide-to={index}>
+        </button>
+    ))}
+      
     </div>
     
     <button
@@ -122,12 +177,14 @@ const proyectos = [
       </span>
     </button>
     </div>
-    <div class="w-[50%] rounded-r-lg pl-5 pt-5 bg-neutral-900">
-    <h3 class="text-2xl font-semibold">{item.title}</h3>
-    <ul>
+    <div class="w-[50%] rounded-r-lg pl-5 bg-neutral-900">
+    <h3 class="text-2xl mt-10 font-semibold">{item.title}</h3>
 
-    </ul>
-    <p class="text-gray-400 text-base leading-loose mt-3">{item.description}</p>
+    <Technologies technologies={item.technologies} />
+
+    <p class="text-gray-300 text-base leading-loose mt-3">{item.description}</p>
+    
+    <ButtonsProjects />
   </div>
   </article>
   ))
@@ -137,6 +194,12 @@ const proyectos = [
 <style>
   .w-section {
     width: 82.9%;
+  }
+
+  .box_art{
+    box-shadow: 1px 1px 5px 4px rgba(54,56,56,0.75);
+-webkit-box-shadow: 1px 1px 5px 4px rgba(54,56,56,0.75);
+-moz-box-shadow: 1px 1px 5px 4px rgba(54,56,56,0.75);
   }
 
   .bg-img-projects {

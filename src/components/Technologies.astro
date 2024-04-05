@@ -1,0 +1,32 @@
+---
+import Bootstrap from "./icons/Bootstrap.astro";
+import Taildwind from "./icons/Taildwind.astro";
+import React from "./icons/React.astro"
+import ExpressIcon from "./icons/ExpressIcon.astro"
+import NodeIcon from "./icons/NodeIcon.astro";
+import MysqlIcon from "./icons/MysqlIcon.astro"
+import ReactRouter from "./icons/ReactRouter.astro"
+import StyleIcon from "./icons/StyleIcon.astro"
+import ViteIcon from "./icons/ViteIcon.astro";
+const { technologies } = Astro.props;
+
+
+---
+
+<ul class="w-full flex flex-wrap justify-start mt-5">
+    {
+        technologies.map((tech) => (
+            <li class="mr-1 mt-2">
+                {tech === "Bootstrap" && <Bootstrap />}
+                {tech === "Tailwind" && <Taildwind />}
+                {tech === "React" && <React /> }
+                {tech === "Express-js" && <ExpressIcon />}
+                {tech === "Node-js" && <NodeIcon />}
+                {tech === "MySql" && <MysqlIcon />}
+                {tech === "React-Router-Dom" && <ReactRouter />}
+                {tech === "Style-Components" && <StyleIcon />}
+                {tech === "Vite" && <ViteIcon />}
+            </li>
+        ))
+    }
+</ul>

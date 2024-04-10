@@ -1,194 +1,209 @@
 ---
-import Technologies from '../components/Technologies.astro'
-import ButtonsProjects from './ButtonsProjects.astro';
+import type { preview } from "astro";
+import Technologies from "../components/Technologies.astro";
+import ButtonsProjects from "./ButtonsProjects.astro";
+/* medidas 60 curve 40, 80 curve 20, 65 */
 const proyectos = [
   {
     title: "Series TMDB",
-    description:"Series TMDB es un proyecto para buscar las series mas populares actualmente y las mejores calificadas, para obtener la informacion se consume la TMDB API",
-    photos:[
-        {
-          path:'tmdb1.webp',
-          height:'h-[28rem]'
-        },
-        {
-          path:'tmdb2.webp',
-          height:'h-[22rem]'
-        },
-        {
-          path:'tmdb3.webp',
-          height:'h-[25rem]'
-        }
-      ],
-    technologies:[
-      'React',
-      'React-Router-Dom',
-      'Bootstrap',
-      'Node-js',
-      'Vite'
-    ]
+    description:
+      "Series TMDB es un proyecto para buscar las series mas populares actualmente y las mejores calificadas, para obtener la informacion se consume la TMDB API",
+    links:{
+      code:"https://github.com/EduMC14/seriesTMDB?tab=readme-ov-file",
+      preview:"https://seriestmdb.netlify.app/",
+    },
+    photos: [
+      {
+        path: "mv.webp",
+      },
+      {
+        path: "mv2.webp",
+      },
+      {
+        path: "mv3.webp",
+      },
+    ],
+    technologies: ["React", "React-Router-Dom", "Bootstrap", "Node-js", "Vite"],
   },
   {
     title: "Pokedex",
-    description:"Este es un clon de un pokedex el cual utilice la PokeAPI para cargar la informacion de las cards y buscar todo los pokemonos mediante un buscador",
-    photos:[
-        {
-          path:'poke1.webp',
-          height:'h-[24rem]'
-        },
-        {
-          path:'poke2.webp',
-          height:'h-[22rem]'
-        },
-        {
-          path:'poke3.webp',
-          height:'h-[25rem]'
-        }
-      ],
-    technologies:[
-      'React',
-      'React-Router-Dom',
-      'Bootstrap',
-      'Node-js',
-      'Vite'
-    ]
+    description:
+      "Este es un clon de un pokedex el cual utilice la PokeAPI para cargar la informacion de las cards y buscar todo los pokemonos mediante un buscador",
+    links:{
+      code:"https://github.com/EduMC14/PokedexEMC",
+      preview:"https://edumc14.github.io/PokedexEMC/",
+    },
+      photos: [
+      {
+        path: "pk1.webp",
+      },
+      {
+        path: "pk2.webp",
+
+      },
+      {
+        path: "pk3.webp",
+      },
+    ],
+    technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "Node-js"],
   },
   {
     title: "Gestion Tareas Bitam",
-    description:"Este es un proyecto el fue creado con la intencion de llevar un control de mis tareas realizadas en Bitam, verificar enn que estado se encontraban",
-    photos:[
-        {
-          path:'gse1.webp',
-          height:'h-[27rem]'
-        },
-        {
-          path:'gse2.webp',
-          height:'h-[23rem]'
-        },
-        {
-          path:'gse4.webp',
-          height:'h-[25rem]'
-        },
-        {
-          path:'gse3.webp',
-          height:'h-[23rem]'
-        }
-      ],
-    technologies:[
-      'React',
-      'React-Router-Dom',
-      'Bootstrap',
-      'Node-js',
-      'Express-js',
-      'MySql',
-      'Style-Components',
-      'Vite'
-    ]
-  }
+    description:
+      "Este es un proyecto el fue creado con la intencion de llevar un control de mis tareas realizadas en Bitam, verificar enn que estado se encontraban",
+      links:{
+        code:"https://github.com/EduMC14/gestion_tareas",
+        preview:"https://github.com/EduMC14/",
+      },
+    photos: [
+      {
+        path: "gs1.webp",
+      },
+      {
+        path: "gs2.webp",
+      },
+      {
+        path: "gs3.png",
+      },
+      {
+        path: "gs4.png",
+      },
+    ],
+    technologies: [
+      "React",
+      "React-Router-Dom",
+      "Bootstrap",
+      "Node-js",
+      "Express-js",
+      "MySql",
+      "Style-Components",
+      "Vite",
+    ],
+  },
 ];
 ---
-<section class="flex flex-col justify-center rounded-lg w-section" id="projects">
-<h2
-  class="text-lg mx-auto mb-10 dark:text-gray-100 text-gray-700 lg:text-3xl font-semibold"
+
+<section
+  class="flex flex-col justify-center rounded-lg w-section"
+  id="projects"
 >
-  Proyectos
-</h2>
-{
-  proyectos.map((item)=> (
-  <article class="w-full mb-10 h-[24rem] rounded-lg flex flex-row box_art">
-    <div
-    id="controls-carousel"
-    class="w-[50%] h-full rounded-l-lg relative bg-img-projects"
-    data-carousel="static"
-    >
-      <div class="relative h-full overflow-hidden rounded-lg md:h-96">
-        {item.photos.map((photo,index)=>(
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img
-          src={photo.path}
-          class={`img-car absolute block w-full aspect-[16/9] ${photo.height} -translate-x-1/2 -translate-y-1/2 left-1/2`}
-          alt="..."
-        />
-      </div>
-        ))}
-      </div>
-    <div
-      class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
-    >
-    {item.photos.map((photo,index) => (
-      <button
-        type="button"
-        class="w-3 h-3 rounded-full"
-        aria-current="true"
-        aria-label={`Slide ${index}`}
-        data-carousel-slide-to={index}>
-        </button>
-    ))}
-      
-    </div>
-    
-    <button
-      type="button"
-      class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-      data-carousel-prev
-    >
-      <span
-        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+  <h2
+    class="text-lg mb-10 dark:text-gray-100 text-gray-700 lg:text-3xl font-semibold flex items-center"
+  >
+    <span class="mr-2"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-code text-gray-100"
+        width="44"
+        height="44"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <svg
-          class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 6 10"
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M7 8l-4 4l4 4"></path>
+        <path d="M17 8l4 4l-4 4"></path>
+        <path d="M14 4l-4 16"></path>
+      </svg></span
+    >Proyectos
+  </h2>
+  {
+    proyectos.map((item) => (
+      <article class="w-full mb-10 lg:h-[23rem] h-[40rem] rounded-lg flex flex-col lg:flex-row box_art ">
+        <div
+          id="controls-carousel"
+          class="lg:w-[50%] w-full lg:h-full h-[40%] lg:rounded-l-lg relative bg-img-projects"
+          data-carousel="static"
         >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M5 1 1 5l4 4"></path>
-        </svg>
-        <span class="sr-only">Previous</span>
-      </span>
-    </button>
-    <button
-      type="button"
-      class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-      data-carousel-next
-    >
-      <span
-        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
-      >
-        <svg
-          class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 6 10"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="m1 9 4-4-4-4"></path>
-        </svg>
-        <span class="sr-only">Next</span>
-      </span>
-    </button>
-    </div>
-    <div class="w-[50%] rounded-r-lg pl-5 bg-neutral-900">
-    <h3 class="text-2xl mt-10 font-semibold">{item.title}</h3>
+          <div class="relative h-full overflow-hidden rounded-lg md:h-96">
+            {item.photos.map((photo, index) => (
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img
+                  src={photo.path}
+                  class={`img-car absolute block w-full h-full  -translate-x-1/2 -translate-y-1/2 left-1/2`}
+                  alt="..."
+                />
+              </div>
+            ))}
+          </div>
+          <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+            {item.photos.map((photo, index) => (
+              <button
+                type="button"
+                class="w-3 h-3 rounded-full"
+                aria-current="true"
+                aria-label={`Slide ${index}`}
+                data-carousel-slide-to={index}
+              ></button>
+            ))}
+          </div>
 
-    <Technologies technologies={item.technologies} />
+          <button
+            type="button"
+            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev
+          >
+            <span class="inline-flex items-center justify-center lg:size-10 size-8 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+              <svg
+                class="lg:size-4 size-3 text-white dark:text-gray-800 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 1 1 5l4 4"
+                />
+              </svg>
+              <span class="sr-only">Previous</span>
+            </span>
+          </button>
+          <button
+            type="button"
+            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next
+          >
+            <span class="inline-flex items-center justify-center lg:w-10 lg:h-10 size-8 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+              <svg
+                class="lg:size-4 size-3 text-white dark:text-gray-800 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 9 4-4-4-4"
+                />
+              </svg>
+              <span class="sr-only">Next</span>
+            </span>
+          </button>
+        </div>
+        <div class="lg:w-[50%] lg:h-full h-[60%] w-full lg:rounded-r-lg  pl-5 bg-neutral-900">
+          <h3 class="text-2xl lg:mt-10 mt-7 font-semibold">{item.title}</h3>
 
-    <p class="text-gray-300 text-base leading-loose mt-3">{item.description}</p>
-    
-    <ButtonsProjects />
-  </div>
-  </article>
-  ))
-}
+          <Technologies technologies={item.technologies} />
+
+          <p class="text-gray-300 lg:text-base text-sm leading-loose lg:leading-loose mt-3">
+            {item.description}
+          </p>
+
+          <ButtonsProjects links={item.links} />
+        </div>
+      </article>
+    ))
+  }
 </section>
 
 <style>
@@ -196,10 +211,10 @@ const proyectos = [
     width: 82.9%;
   }
 
-  .box_art{
-    box-shadow: 1px 1px 5px 4px rgba(54,56,56,0.75);
--webkit-box-shadow: 1px 1px 5px 4px rgba(54,56,56,0.75);
--moz-box-shadow: 1px 1px 5px 4px rgba(54,56,56,0.75);
+  .box_art {
+    box-shadow: 1px 1px 5px 4px rgba(54, 56, 56, 0.75);
+    -webkit-box-shadow: 1px 1px 5px 4px rgba(54, 56, 56, 0.75);
+    -moz-box-shadow: 1px 1px 5px 4px rgba(54, 56, 56, 0.75);
   }
 
   .bg-img-projects {
@@ -207,6 +222,6 @@ const proyectos = [
     background-size: cover;
   }
   .img-car {
-    top: 50%;
+    top: 48%;
   }
 </style>

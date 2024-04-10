@@ -8,15 +8,18 @@ import MysqlIcon from "./icons/MysqlIcon.astro"
 import ReactRouter from "./icons/ReactRouter.astro"
 import StyleIcon from "./icons/StyleIcon.astro"
 import ViteIcon from "./icons/ViteIcon.astro";
+import JsIcon from "./icons/JsIcon.astro"
+import HTMLIcon from "./icons/HTMLIcon.astro"
+import CSSIcon from "./icons/CSSIcon.astro"
 const { technologies } = Astro.props;
 
 
 ---
 
-<ul class="w-full flex flex-wrap justify-start mt-5">
+<ul class="w-full flex flex-wrap justify-start lg:mt-5 mt-3">
     {
         technologies.map((tech) => (
-            <li class="mr-1 mt-2">
+            <li class="mr-2 mt-2 hover:scale-110 hover:cursor-pointer">
                 {tech === "Bootstrap" && <Bootstrap />}
                 {tech === "Tailwind" && <Taildwind />}
                 {tech === "React" && <React /> }
@@ -26,6 +29,9 @@ const { technologies } = Astro.props;
                 {tech === "React-Router-Dom" && <ReactRouter />}
                 {tech === "Style-Components" && <StyleIcon />}
                 {tech === "Vite" && <ViteIcon />}
+                {tech === "JavaScript" && <JsIcon />}
+                {tech === "HTML" && <HTMLIcon />}
+                {tech === "CSS" && <CSSIcon />}
             </li>
         ))
     }

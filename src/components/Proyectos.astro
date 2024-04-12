@@ -112,7 +112,7 @@ const proyectos = [
   </h2>
   {
     proyectos.map((item) => (
-      <article class="w-full mb-10 lg:h-[23rem] h-[40rem] rounded-lg flex flex-col lg:flex-row box_art ">
+      <article class="w-full mb-10 lg:h-[23rem] h-[40rem] rounded-lg flex flex-col lg:flex-row box_art animate-fade-up ">
         <div
           id="controls-carousel"
           class="lg:w-[50%] w-full lg:h-full h-[40%] lg:rounded-l-lg relative bg-img-projects"
@@ -210,6 +210,23 @@ const proyectos = [
   .w-section {
     width: 82.9%;
   }
+
+  @keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(4rem)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+.animate-fade-up {
+    animation: fade-up 2s ease forwards
+}
+
 
   .box_art {
     box-shadow: 1px 1px 5px 4px rgba(54, 56, 56, 0.75);

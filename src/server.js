@@ -3,7 +3,6 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import nodemailer from 'nodemailer'
 import dotenv from 'dotenv'
-import path from 'path';
 
 dotenv.config()
 
@@ -11,8 +10,6 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Servir contenido estático
-app.use(express.static(path.join(__dirname, '../dist/astro')))
 
 app.post('/send', (req, res) => {
     const { name, email, subject, message } = req.body;
@@ -40,11 +37,6 @@ app.post('/send', (req, res) => {
         }
         res.status(200).send('Mensaje enviado: ' + info.response);
     });
-});
-
-// Servir el archivo estático en la raíz
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../dist/astro/', 'index.html'));
 });
 
 const PORT = process.env.PORT || 3001

@@ -4,12 +4,11 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "node src/server.js",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "standard --fix",
-    "server": "node src/server.js"
+    "lint": "standard --fix"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",

@@ -8,15 +8,22 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "standard --fix"
+    "lint": "standard --fix",
+    "server": "node src/server.js"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/onest": "^5.0.3",
     "@fontsource/press-start-2p": "^5.0.19",
     "astro": "^4.4.11",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "flowbite": "^2.3.0",
-    "tailwindcss": "^3.4.1"
+    "nodemailer": "^6.9.14",
+    "tailwindcss": "^3.4.1",
+    "toastify-js": "^1.12.0"
   },
   "devDependencies": {
     "standard": "^17.1.0"

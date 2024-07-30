@@ -1,0 +1,138 @@
+---
+
+---
+
+<section class="w-section text-base dark:text-gray-300 lg:flex" id="contactme">
+    <div class="lg:w-1/2 w-[100%]">
+        <h2 class="text-lg lg:text-3xl font-semibold text-gray-100 mb-5">
+            Contactame
+        </h2>
+        <p class="mt-2">
+            Puedes contactarme al siguiente correo <u
+                class="subrayado text-white"
+                >eduardomar987@gmail.com
+            </u><br />
+            <p>
+                Si deseas mas informacion aqui tienes mi <a
+                    href="../../static/EduardoCV.pdf"
+                    download><u class="subrayado text-white">resumen</u>.</a
+                >
+            </p>
+        </p>
+    </div>
+    <div class="lg:w-1/2 mt-5 w-[100%] form">
+        <form class="max-w-sm mx-auto" id="contactForm">
+            <div class="mb-5">
+                <label
+                    for="name"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Nombre</label
+                >
+                <input
+                    type="text"
+                    id="name"
+                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                    required
+                />
+            </div>
+            <div class="mb-5">
+                <label
+                    for="email"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Correo</label
+                >
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Tu correo"
+                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                    required
+                />
+            </div>
+            <div class="mb-5">
+                <label
+                    for="subject"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Asunto</label
+                >
+                <input
+                    type="text"
+                    id="subject"
+                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                    required
+                />
+            </div>
+            <label
+                for="message"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Mensaje</label
+            >
+            <textarea
+                id="message"
+                rows="4"
+                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Escribe tu mensaje"></textarea>
+            <button
+                type="submit"
+                class="mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >Enviar</button
+            >
+        </form>
+    </div>
+</section>
+
+<script>
+    import "toastify-js/src/toastify.css";
+    import Toastify from "toastify-js";
+    const FORM = document.getElementById("contactForm");
+
+    FORM.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const name = (document.getElementById("name") as HTMLInputElement)
+            .value;
+        const email = (document.getElementById("email") as HTMLInputElement)
+            .value;
+        const subject = (document.getElementById("subject") as HTMLInputElement)
+            .value;
+        const message = (
+            document.getElementById("message") as HTMLTextAreaElement
+        ).value;
+
+        const response = await fetch("http://localhost:3001/send", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name, email, subject, message }),
+        });
+
+        if (response.ok) {
+            Toastify({
+                text: "Mensaje enviado",
+                duration: 3000,
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                }
+            }).showToast();
+        } else {
+            alert("Error al enviar el mensaje");
+        }
+    });
+</script>
+
+<style>
+    .w-section {
+        width: 82.9%;
+    }
+
+    .subrayado {
+        text-decoration: underline;
+        text-decoration-color: #0a65c1;
+        cursor: pointer;
+    }
+</style>

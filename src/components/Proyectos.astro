@@ -8,9 +8,9 @@ const proyectos = [
     title: "Series TMDB",
     description:
       "Series TMDB es un proyecto para buscar las series mas populares actualmente y las mejores calificadas, para obtener la informacion se consume la TMDB API",
-    links:{
-      code:"https://github.com/EduMC14/seriesTMDB?tab=readme-ov-file",
-      preview:"https://seriestmdb.netlify.app/",
+    links: {
+      code: "https://github.com/EduMC14/seriesTMDB?tab=readme-ov-file",
+      preview: "https://seriestmdb.netlify.app/",
     },
     photos: [
       {
@@ -29,17 +29,16 @@ const proyectos = [
     title: "Pokedex",
     description:
       "Este es un clon de un pokedex el cual utilice la PokeAPI para cargar la informacion de las cards y buscar todo los pokemonos mediante un buscador",
-    links:{
-      code:"https://github.com/EduMC14/PokedexEMC",
-      preview:"https://edumc14.github.io/PokedexEMC/",
+    links: {
+      code: "https://github.com/EduMC14/PokedexEMC",
+      preview: "https://edumc14.github.io/PokedexEMC/",
     },
-      photos: [
+    photos: [
       {
         path: "pk1.webp",
       },
       {
         path: "pk2.webp",
-
       },
       {
         path: "pk3.webp",
@@ -51,10 +50,10 @@ const proyectos = [
     title: "Gestion Tareas Bitam",
     description:
       "Este es un proyecto el fue creado con la intencion de llevar un control de mis tareas realizadas en Bitam, verificar enn que estado se encontraban",
-      links:{
-        code:"https://github.com/EduMC14/gestion_tareas",
-        preview:"https://github.com/EduMC14/",
-      },
+    links: {
+      code: "https://github.com/EduMC14/gestion_tareas",
+      preview: "https://github.com/EduMC14/",
+    },
     photos: [
       {
         path: "gs1.webp",
@@ -112,7 +111,7 @@ const proyectos = [
   </h2>
   {
     proyectos.map((item) => (
-      <article class="w-full mb-10 lg:h-[23rem] h-[40rem] rounded-lg flex flex-col lg:flex-row box_art animate-fade-up ">
+      <article class="w-full lg:w-[88%] mx-auto mb-10 lg:h-[40vh] h-[40rem] rounded-lg flex flex-col lg:flex-row box_art animate-fade-up ">
         <div
           id="controls-carousel"
           class="lg:w-[50%] w-full lg:h-full h-[40%] lg:rounded-l-lg relative bg-img-projects"
@@ -123,7 +122,7 @@ const proyectos = [
               <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <img
                   src={photo.path}
-                  class={`img-car absolute block w-full h-full  -translate-x-1/2 -translate-y-1/2 left-1/2`}
+                  class={`img-car absolute block lg:w-[75%] w-full h-full  -translate-x-1/2 -translate-y-1/2 left-1/2`}
                   alt="..."
                 />
               </div>
@@ -137,7 +136,7 @@ const proyectos = [
                 aria-current="true"
                 aria-label={`Slide ${index}`}
                 data-carousel-slide-to={index}
-              ></button>
+              />
             ))}
           </div>
 
@@ -213,20 +212,19 @@ const proyectos = [
 
   @keyframes fade-up {
     0% {
-        opacity: 0;
-        transform: translateY(4rem)
+      opacity: 0;
+      transform: translateY(4rem);
     }
 
     to {
-        opacity: 1;
-        transform: translateY(0)
+      opacity: 1;
+      transform: translateY(0);
     }
-}
+  }
 
-.animate-fade-up {
-    animation: fade-up 2s ease forwards
-}
-
+  .animate-fade-up {
+    animation: fade-up 2s ease forwards;
+  }
 
   .box_art {
     box-shadow: 1px 1px 5px 4px rgba(54, 56, 56, 0.75);

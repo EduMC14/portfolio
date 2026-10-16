@@ -1,0 +1,18 @@
+---
+interface Props {
+  lines?: string[];
+  startLine?: number;
+  class?: string;
+}
+
+const { lines = [], startLine = 1, class: className = '' } = Astro.props;
+---
+
+<div class={`code overflow-x-auto ${className}`}>
+  {lines.map((htmlLine, index) => (
+    <div class="code-row">
+      <span class="code-ln">{startLine + index}</span>
+      <span class="code-txt" set:html={htmlLine || '&nbsp;'} />
+    </div>
+  ))}
+</div>

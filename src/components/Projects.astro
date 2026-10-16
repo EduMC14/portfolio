@@ -1,0 +1,100 @@
+---
+import Window from './Window.astro';
+import { PORTFOLIO_CONTENT } from '../lib/content';
+
+const { projects } = PORTFOLIO_CONTENT;
+---
+
+<section id="proyectos" class="py-10 border-t border-line/40">
+  <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+    <div>
+      <span class="text-comment text-xs font-mono">// 04. Proyectos seleccionados</span>
+      <h2 class="text-lg sm:text-xl font-bold font-mono text-ink mt-0.5 flex items-center gap-2">
+        <span class="text-green font-normal">$</span>
+        <span>ls -la ~/proyectos/</span>
+      </h2>
+    </div>
+    <span class="text-comment text-xs font-mono">{projects.length} repositorios públicos</span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+    {projects.map((project, index) => (
+      <Window
+        file={project.file}
+        badge={`project_0${index + 1}`}
+        class="flex flex-col h-full"
+      >
+        <div class="flex flex-col h-full space-y-4">
+          
+          <!-- Mockup de Navegador con Captura Real -->
+          <div class="border border-line bg-panel-2 overflow-hidden flex flex-col">
+            <!-- Barra de dirección simulada -->
+            <div class="flex items-center gap-2 px-2.5 py-1.5 bg-panel-3 border-b border-line text-[11px] font-mono text-muted">
+              <span class="text-comment select-none">GET</span>
+              <span class="truncate text-ink/75">
+                {project.links.preview ? project.links.preview.replace('https://', '') : `localhost:3000/${project.file}`}
+              </span>
+            </div>
+
+            <!-- Imagen del proyecto -->
+            <div class="relative aspect-video overflow-hidden group bg-bg flex items-center justify-center">
+              <img
+                src={project.image}
+                alt={`Captura del proyecto ${project.title}`}
+                class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="hidden absolute inset-0 items-center justify-center font-mono text-xs text-comment bg-panel-2">
+                [preview no disponible]
+              </div>
+            </div>
+          </div>
+
+          <!-- Contenido textual del proyecto -->
+          <div class="space-y-2 flex-grow">
+            <h3 class="font-mono text-sm sm:text-base font-bold text-ink flex items-center gap-2">
+              <span class="text-cyan">&gt;</span>
+              <span>{project.title}</span>
+            </h3>
+            <p class="font-mono text-xs text-ink/80 leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+
+          <!-- Tags de tecnologías -->
+          <div class="pt-2 border-t border-line/50 flex flex-wrap gap-1.5">
+            {project.tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+
+          <!-- Botones de Acción Estilo Terminal -->
+          <div class="pt-3 border-t border-line flex items-center gap-2 mt-auto">
+            <a
+              href={project.links.code}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn text-xs flex-1 text-center justify-center"
+              title={`Ver código fuente de ${project.title}`}
+            >
+              <span class="btn__sym text-blue">$</span> repo
+            </a>
+            {project.links.preview && (
+              <a
+                href={project.links.preview}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--primary text-xs flex-1 text-center justify-center"
+                title={`Abrir demo interactivo de ${project.title}`}
+              >
+                <span class="btn__sym">&gt;</span> preview
+              </a>
+            )}
+          </div>
+
+        </div>
+      </Window>
+    ))}
+  </div>
+</section>

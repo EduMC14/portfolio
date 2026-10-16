@@ -1,0 +1,28 @@
+---
+---
+<div
+  id="scroll-progress"
+  class="fixed top-0 left-0 h-[2.5px] bg-cyan z-[9999] transition-[width] duration-75 ease-out"
+  style="width: 0%;"
+  role="progressbar"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="0"
+  aria-label="Progreso de lectura"
+></div>
+
+<script>
+  const bar = document.getElementById('scroll-progress');
+  if (bar) {
+    const updateProgress = () => {
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const percent = height > 0 ? (scrollY / height) * 100 : 0;
+      bar.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+      bar.setAttribute('aria-valuenow', String(Math.round(percent)));
+    };
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+</script>

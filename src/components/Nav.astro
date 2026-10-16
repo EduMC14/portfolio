@@ -1,0 +1,108 @@
+---
+import { PORTFOLIO_CONTENT } from '../lib/content';
+const { user, host, path } = PORTFOLIO_CONTENT.profile;
+---
+
+<header class="fixed inset-x-0 top-0 z-50 h-[58px] bg-panel-2 border-b border-line shadow-sm">
+  <div class="mx-auto flex h-full max-w-[1180px] items-center justify-between gap-4 px-4 sm:px-6">
+    <!-- Brand Prompt -->
+    <a href="#home" class="font-mono text-xs sm:text-[13.5px] font-bold text-ink hover:text-cyan transition-colors flex items-center">
+      <span>{user}@{host}</span>
+      <span class="text-muted hidden sm:inline">{path}</span>
+      <span class="text-green animate-blink ml-0.5">$</span>
+    </a>
+
+    <!-- Mobile Menu Toggle Button (Flowbite) -->
+    <button
+      data-collapse-toggle="nav-links"
+      type="button"
+      class="inline-flex items-center justify-center p-2 text-xs font-mono text-muted border border-line bg-panel md:hidden hover:text-ink hover:border-cyan focus:outline-none"
+      aria-controls="nav-links"
+      aria-expanded="false"
+      aria-label="Abrir menú de navegación"
+    >
+      <span class="mr-1.5 text-cyan">[menu]</span>
+      <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <!-- Navigation Tabs -->
+    <nav
+      id="nav-links"
+      class="hidden absolute top-[58px] left-0 right-0 bg-panel-2 border-b border-line flex-col w-full md:relative md:top-0 md:flex md:flex-row md:items-center md:h-full md:w-auto md:border-b-0 md:bg-transparent"
+      aria-label="Navegación principal"
+    >
+      <div class="flex flex-col md:flex-row md:h-full">
+        <a class="tab py-3 px-4 md:py-0 border-b border-line/40 md:border-b-2" href="#home" aria-current="true">
+          <span class="text-comment mr-1.5">1</span>Home
+        </a>
+        <a class="tab py-3 px-4 md:py-0 border-b border-line/40 md:border-b-2" href="#experiencia" aria-current="false">
+          <span class="text-comment mr-1.5">2</span>Experiencia
+        </a>
+        <a class="tab py-3 px-4 md:py-0 border-b border-line/40 md:border-b-2" href="#skills" aria-current="false">
+          <span class="text-comment mr-1.5">3</span>Skills
+        </a>
+        <a class="tab py-3 px-4 md:py-0 border-b border-line/40 md:border-b-2" href="#proyectos" aria-current="false">
+          <span class="text-comment mr-1.5">4</span>Proyectos
+        </a>
+        <a class="tab py-3 px-4 md:py-0 border-b border-line/40 md:border-b-2" href="#sobre-mi" aria-current="false">
+          <span class="text-comment mr-1.5">5</span>Sobre mí
+        </a>
+        <a class="tab py-3 px-4 md:py-0" href="#contacto" aria-current="false">
+          <span class="text-comment mr-1.5">6</span>Contáctame
+        </a>
+      </div>
+      <div class="p-3 md:p-0 md:ml-4 flex items-center border-t border-line/40 md:border-t-0">
+        <a
+          href={PORTFOLIO_CONTENT.profile.cvUrl}
+          download
+          class="btn text-xs py-1.5 px-3 w-full md:w-auto"
+          title="Descargar Curriculum Vitae en PDF"
+        >
+          <span class="btn__sym text-cyan">$</span> cv.pdf
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Scroll-spy: marca aria-current en la pestaña visible
+  const tabs = Array.from(document.querySelectorAll<HTMLAnchorElement>('.tab[href^="#"]'));
+  const sections = tabs
+    .map((a) => {
+      const targetId = a.getAttribute('href');
+      return targetId ? document.querySelector(targetId) : null;
+    })
+    .filter((el): el is Element => el !== null);
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const currentId = '#' + entry.target.id;
+            tabs.forEach((tab) => {
+              const isActive = tab.getAttribute('href') === currentId;
+              tab.setAttribute('aria-current', isActive ? 'true' : 'false');
+            });
+          }
+        });
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+  }
+
+  // Cerrar menú móvil al pulsar una pestaña
+  const navContainer = document.getElementById('nav-links');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      if (window.innerWidth < 768 && navContainer) {
+        navContainer.classList.add('hidden');
+      }
+    });
+  });
+</script>

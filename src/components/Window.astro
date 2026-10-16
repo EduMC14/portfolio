@@ -1,0 +1,31 @@
+---
+interface Props {
+  file?: string;
+  badge?: string;
+  class?: string;
+  id?: string;
+}
+
+const { file = 'window', badge = '', class: className = '', id } = Astro.props;
+---
+
+<div class={`win reveal ${className}`} id={id}>
+  <div class="win-bar">
+    <span class="win-dots" aria-hidden="true">
+      <i class="win-dot bg-red"></i>
+      <i class="win-dot bg-amber"></i>
+      <i class="win-dot bg-green"></i>
+    </span>
+    <span class="win-title font-mono text-xs">
+      <b class="text-ink">{file}</b>
+    </span>
+    {badge && (
+      <span class="ml-auto text-[11px] font-mono text-comment border border-line px-1.5 py-0.5 bg-panel-2">
+        {badge}
+      </span>
+    )}
+  </div>
+  <div class="win-body">
+    <slot />
+  </div>
+</div>

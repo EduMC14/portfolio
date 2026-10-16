@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Progress from '../components/Progress.astro';
+import StatusBar from '../components/StatusBar.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Eduardo Mar · Desarrollador Web & QA Tester',
+  description = 'Portafolio profesional de Eduardo Mar. Desarrollador web y QA tester especializado en aplicaciones accesibles, rápidas y código de alta fidelidad.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="dark scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b0f14" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body
+    class="font-mono text-[14.5px] sm:text-[15px] leading-[1.65] text-ink bg-bg min-h-screen flex flex-col selection:bg-cyan/20 selection:text-white [background-image:linear-gradient(rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] [background-size:32px_32px] overflow-x-hidden antialiased"
+  >
+    <!-- Enlace accesible de salto al contenido -->
+    <a
+      href="#home"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[9999] focus:bg-cyan focus:text-[#07131a] focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:font-bold focus:shadow-lg focus:outline-none"
+    >
+      &gt; Saltar al contenido principal
+    </a>
+
+    <!-- Barra de progreso superior -->
+    <Progress />
+
+    <!-- Barra de navegación con pestañas de terminal -->
+    <Nav />
+
+    <!-- Contenido principal centrado -->
+    <main class="flex-grow max-w-[1180px] w-full mx-auto px-4 sm:px-6 pt-[58px]">
+      <slot />
+    </main>
+
+    <!-- Barra inferior tipo VS Code -->
+    <StatusBar />
+
+    <!-- Inicialización de Flowbite y animaciones Reveal -->
+    <script>
+      import 'flowbite';
+
+      // Revelado suave al scroll con IntersectionObserver
+      const reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && reveals.length) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-in');
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -40px 0px', threshold: 0.08 }
+        );
+
+        reveals.forEach((el) => revealObserver.observe(el));
+      } else {
+        reveals.forEach((el) => el.classList.add('is-in'));
+      }
+    </script>
+  </body>
+</html>

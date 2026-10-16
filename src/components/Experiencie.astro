@@ -1,43 +1,60 @@
 ---
 const EXPERIENCIE = [
     {
-        title:"QA Tester",
-        enterprise:"BITAM® de Mexico",
-        date:"Noviembre 2022 - Actualmente ...",
-        description:[
+        title: "Desarrollador Software Jr",
+        enterprise: "BITAM® de Mexico",
+        date: "Agosto 2025 - Actualmente...",
+        description: [
             {
-                title:"Planificación y Ejecución de Pruebas de Calidad:",
-                description:"Desarrollo e implemento planes de pruebas para garantizar la calidad del software. Realizó pruebas exhaustivas en desarrollos personalizados para clientes adaptandome a cada una de la expectatcias de funcionamiento y requerimientos"
+                title: "Desarrollo de Aplicaciones Web",
+                description:
+                    "Desarrollo de aplicaciones web con tecnologías como HTML, CSS, JavaScript, React, Node.js, Express, y MongoDB.",
+            },
+        ],
+    },
+    {
+        title: "QA Tester",
+        enterprise: "BITAM® de Mexico",
+        date: "Noviembre 2022 - Agosto 2025",
+        description: [
+            {
+                title: "Planificación y Ejecución de Pruebas de Calidad:",
+                description:
+                    "Desarrollo e implemento planes de pruebas para garantizar la calidad del software. Realizó pruebas exhaustivas en desarrollos personalizados para clientes adaptandome a cada una de la expectatcias de funcionamiento y requerimientos",
             },
             {
-                title:"Pruebas Automatizadas",
-                description:"Elaboro pruebas automatizadas con el Framework de Cypress, con el cual simulo mediante un robot las acciones del usuario y los casos de pruebas planeados."
+                title: "Pruebas Automatizadas",
+                description:
+                    "Elaboro pruebas automatizadas con el Framework de Cypress, con el cual simulo mediante un robot las acciones del usuario y los casos de pruebas planeados.",
             },
             {
-                title:"Uso de SQL en Validación de Datos:",
-                description:"Aplico consultas SQL para verificar y validar la integridad de los datos en la base de datos de las aplicaciones."
+                title: "Uso de SQL en Validación de Datos:",
+                description:
+                    "Aplico consultas SQL para verificar y validar la integridad de los datos en la base de datos de las aplicaciones.",
             },
             {
-                title:"Presentación de Resultados:",
-                description:"Comunico los resultados de las pruebas tanto a desarrolladores como a clientes."
+                title: "Presentación de Resultados:",
+                description:
+                    "Comunico los resultados de las pruebas tanto a desarrolladores como a clientes.",
             },
             {
-                title:"Documentación de Aplicaciones:",
-                description:"Elaboro documentación detallada sobre las aplicaciones, proporcionando información necesaria para comprender su funcionamiento"
-            }
-        ]
-    }
-]
+                title: "Documentación de Aplicaciones:",
+                description:
+                    "Elaboro documentación detallada sobre las aplicaciones, proporcionando información necesaria para comprender su funcionamiento",
+            },
+        ],
+    },
+];
 
-import ExperiencieItem from "./ExperiencieItem.astro"
+import ExperiencieItem from "./ExperiencieItem.astro";
 ---
 
-<ol class="relative border-s border-gray-500 dark:border-gray-700">                  
-    
-        {EXPERIENCIE.map((experiencie) =>(
+<ol class="relative border-s border-gray-500 dark:border-gray-700">
+    {
+        EXPERIENCIE.map((experiencie) => (
             <li class="mb-10 ms-4">
                 <ExperiencieItem {...experiencie} />
             </li>
-        ))}
+        ))
+    }
 </ol>
-

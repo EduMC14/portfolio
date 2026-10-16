@@ -1,0 +1,118 @@
+---
+import Window from './Window.astro';
+import CodeBlock from './CodeBlock.astro';
+import { PORTFOLIO_CONTENT } from '../lib/content';
+
+const { about } = PORTFOLIO_CONTENT;
+
+// Formateamos las líneas con sintaxis de markdown para CodeBlock
+const markdownFormattedLines = about.markdownLines.map((line) => {
+  if (line.startsWith('# ')) {
+    return `<span class="text-cyan font-bold">${line}</span>`;
+  }
+  if (line.startsWith('> ')) {
+    return `<span class="text-amber italic">${line}</span>`;
+  }
+  if (line.startsWith('- ')) {
+    return `<span class="text-green font-semibold">-</span> <span class="text-ink/90">${line.substring(2)}</span>`;
+  }
+  if (line === '') {
+    return '&nbsp;';
+  }
+  return `<span class="text-ink/90">${line}</span>`;
+});
+
+// Función recursiva o estructurada para serializar JSON con coloreado IDE
+function formatJsonValue(val: any, indentLevel = 1): string[] {
+  const indent = '  '.repeat(indentLevel);
+  if (Array.isArray(val)) {
+    if (val.length === 0) return ['[]'];
+    // Si los elementos son simples
+    if (val.every((item) => typeof item === 'string' || typeof item === 'number')) {
+      return [`[${val.map((item) => `<span class="s-str">"${item}"</span>`).join(', ')}]`];
+    }
+    const lines = ['['];
+    val.forEach((item, idx) => {
+      const isLast = idx === val.length - 1;
+      const formatted = formatJsonValue(item, indentLevel + 1);
+      lines.push(`${indent}  ${formatted.join(`\n${indent}  `)}${isLast ? '' : ','}`);
+    });
+    lines.push(`${indent}]`);
+    return lines;
+  }
+  if (typeof val === 'object' && val !== null) {
+    const keys = Object.keys(val);
+    if (keys.length === 0) return ['{}'];
+    const lines = ['{'];
+    keys.forEach((k, idx) => {
+      const isLast = idx === keys.length - 1;
+      const subFormatted = formatJsonValue(val[k], indentLevel + 1);
+      lines.push(`${indent}  <span class="s-key">"${k}"</span><span class="text-ink">:</span> ${subFormatted.join(`\n${indent}  `)}${isLast ? '' : '<span class="text-ink">,</span>'}`);
+    });
+    lines.push(`${indent}}`);
+    return lines;
+  }
+  if (typeof val === 'boolean') {
+    return [`<span class="s-bool">${val}</span>`];
+  }
+  if (typeof val === 'number') {
+    return [`<span class="s-const">${val}</span>`];
+  }
+  return [`<span class="s-str">"${val}"</span>`];
+}
+
+const jsonLines: string[] = ['<span class="text-ink">{</span>'];
+const entries = Object.entries(about.detailsJson);
+entries.forEach(([key, val], idx) => {
+  const isLast = idx === entries.length - 1;
+  const valFormatted = formatJsonValue(val, 1);
+  if (valFormatted.length === 1) {
+    jsonLines.push(`  <span class="s-key">"${key}"</span><span class="text-ink">:</span> ${valFormatted[0]}${isLast ? '' : '<span class="text-ink">,</span>'}`);
+  } else {
+    jsonLines.push(`  <span class="s-key">"${key}"</span><span class="text-ink">:</span> ${valFormatted[0]}`);
+    for (let i = 1; i < valFormatted.length; i++) {
+      const lineSuffix = (i === valFormatted.length - 1 && !isLast) ? '<span class="text-ink">,</span>' : '';
+      jsonLines.push(`  ${valFormatted[i]}${lineSuffix}`);
+    }
+  }
+});
+jsonLines.push('<span class="text-ink">}</span>');
+---
+
+<section id="sobre-mi" class="py-10 border-t border-line/40">
+  <div class="mb-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-comment text-xs font-mono">// 05. Información personal y enfoque</span>
+    </div>
+    <span class="text-comment text-xs font-mono">sobre-mi.md &bull; datos.json</span>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    
+    <!-- Ventana 1: sobre-mi.md con números de línea -->
+    <div class="lg:col-span-7">
+      <Window file="sobre-mi.md" badge="Markdown">
+        <CodeBlock lines={markdownFormattedLines} />
+      </Window>
+    </div>
+
+    <!-- Ventana 2: datos.json -->
+    <div class="lg:col-span-5 space-y-4">
+      <Window file="datos.json" badge="JSON">
+        <CodeBlock lines={jsonLines} />
+      </Window>
+
+      <!-- Terminal Quote -->
+      <div class="border border-line bg-panel p-3.5 font-mono text-xs text-ink/80 space-y-2">
+        <p class="text-cyan font-bold flex items-center gap-2">
+          <span>$</span>
+          <span>echo $ENFOQUE_INGENIERIA</span>
+        </p>
+        <p class="text-muted leading-relaxed pl-2 border-l border-cyan/60 italic">
+          "Un enfoque Full Stack efectivo une un backend sólido (asíncrono, escalable y con colas confiables) con interfaces claras y una mentalidad QA que protege la estabilidad en producción."
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>

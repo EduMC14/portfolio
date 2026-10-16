@@ -1,0 +1,99 @@
+---
+import Window from './Window.astro';
+import { PORTFOLIO_CONTENT } from '../lib/content';
+
+const { experience } = PORTFOLIO_CONTENT;
+---
+
+<section id="experiencia" class="py-10 border-t border-line/40">
+  <div class="mb-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-comment text-xs font-mono">// 02. Trayectoria profesional y roles en producción</span>
+    </div>
+    <span class="text-comment text-xs font-mono">2 roles registrados · +3 años IT</span>
+  </div>
+
+  <Window file="experiencia.md" badge="Markdown / TSX">
+    <div class="space-y-8 font-mono text-[13px]">
+      
+      {experience.map((exp) => (
+        <article class="relative pl-3 sm:pl-4 border-l-2 border-line hover:border-cyan transition-colors group">
+          <!-- Declaración de clase estilo código -->
+          <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-2">
+            <span class="s-kw font-bold">class</span>
+            <span class="s-fn font-bold text-sm sm:text-base text-purple">{exp.className}</span>
+            <span class="s-kw">extends</span>
+            <span class="s-type text-amber font-semibold">{exp.extendsClass}</span>
+            <span class="text-ink">&#123;</span>
+            <span class="ml-auto text-xs text-comment font-normal bg-panel-2 px-2 py-0.5 border border-line">
+              {exp.period}
+            </span>
+          </div>
+
+          <!-- Metadatos de la posición -->
+          <div class="bg-panel-2/50 border border-line p-3 mb-3 space-y-1 text-xs">
+            <p>
+              <span class="s-comment">// Posición:</span>
+              <strong class="text-ink ml-1">{exp.role}</strong>
+            </p>
+            <p>
+              <span class="s-comment">// Empresa y sede:</span>
+              <span class="text-cyan ml-1">{exp.company}</span>
+              <span class="text-comment">({exp.location})</span>
+            </p>
+          </div>
+
+          <!-- Checklist de responsabilidades y actividades -->
+          <div class="space-y-2 mb-4">
+            <p class="text-comment text-xs">// Responsabilidades técnicas y arquitectura:</p>
+            <ul class="space-y-2 list-none pl-0">
+              {exp.tasks.map((task) => (
+                <li class="flex items-start gap-2 text-ink/90 leading-relaxed text-xs sm:text-[13px]">
+                  <span class="text-green font-bold select-none mt-0.5">[x]</span>
+                  <span>{task}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Logro destacado si existe -->
+          {exp.achievement && (
+            <div class="mb-4 p-2.5 bg-green/10 border border-green/30 text-xs text-ink flex items-start gap-2">
+              <span class="text-green font-bold select-none">[★ Logro Clave]</span>
+              <span class="text-green/90">{exp.achievement}</span>
+            </div>
+          )}
+
+          <!-- Tags de tecnologías -->
+          <div class="flex flex-wrap items-center gap-1.5 pt-1">
+            <span class="text-comment text-xs select-none">// stack:</span>
+            {exp.tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+
+          <!-- Cierre de clase -->
+          <div class="mt-3 text-ink">
+            <span>&#125;</span>
+          </div>
+        </article>
+      ))}
+
+      <!-- Botón de descarga de CV al final de la experiencia -->
+      <div class="pt-4 border-t border-line flex flex-wrap items-center justify-between gap-3">
+        <p class="text-xs text-comment">
+          ¿Deseas conocer más detalles técnicos de mi historial laboral y proyectos?
+        </p>
+        <a
+          href="/Eduardo_Mar_CV.pdf"
+          download
+          class="btn btn--primary text-xs"
+          title="Descargar Curriculum Vitae en PDF"
+        >
+          <span class="btn__sym">$</span> curl -O Eduardo_Mar_CV.pdf
+        </a>
+      </div>
+
+    </div>
+  </Window>
+</section>

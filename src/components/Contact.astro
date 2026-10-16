@@ -1,0 +1,342 @@
+---
+import Window from './Window.astro';
+import { PORTFOLIO_CONTENT } from '../lib/content';
+
+const { profile } = PORTFOLIO_CONTENT;
+---
+
+<section id="contacto" class="py-10 border-t border-line/40">
+  <div class="mb-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-comment text-xs font-mono">// 06. Canal de comunicación directo</span>
+    </div>
+    <span class="text-comment text-xs font-mono">bash &bull; socket open</span>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    
+    <!-- Ventana Izquierda: Formulario Script Bash -->
+    <div class="lg:col-span-8">
+      <Window file="enviar-mensaje.sh" badge="bash · chmod +x">
+        <div class="space-y-4 font-mono text-xs sm:text-[13px]">
+          <div class="text-comment border-b border-line pb-2">
+            #!/usr/bin/env bash<br />
+            # Ejecuta este script para establecer contacto o solicitar cotización / entrevista.
+          </div>
+
+          <form id="contactForm" novalidate class="space-y-4 pt-1">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Nombre -->
+              <div class="space-y-1">
+                <label for="nombre" class="block font-semibold text-ink">
+                  <span class="text-green font-bold">$</span> --name <span class="text-red">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Tu nombre..."
+                  class="w-full bg-panel-2 border border-line px-3 py-2 text-ink placeholder:text-comment focus:border-cyan focus:ring-0 text-xs sm:text-[13px] rounded-none outline-none font-mono"
+                  required
+                  aria-describedby="err-nombre"
+                />
+                <p id="err-nombre" class="text-red text-[11px] min-h-[16px]" aria-live="polite"></p>
+              </div>
+
+              <!-- Apellido -->
+              <div class="space-y-1">
+                <label for="apellido" class="block font-semibold text-ink">
+                  <span class="text-green font-bold">$</span> --surname <span class="text-red">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="apellido"
+                  name="apellido"
+                  placeholder="Tu apellido..."
+                  class="w-full bg-panel-2 border border-line px-3 py-2 text-ink placeholder:text-comment focus:border-cyan focus:ring-0 text-xs sm:text-[13px] rounded-none outline-none font-mono"
+                  required
+                  aria-describedby="err-apellido"
+                />
+                <p id="err-apellido" class="text-red text-[11px] min-h-[16px]" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <!-- Correo -->
+            <div class="space-y-1">
+              <label for="correo" class="block font-semibold text-ink">
+                <span class="text-green font-bold">$</span> --email <span class="text-red">*</span>
+              </label>
+              <input
+                type="email"
+                id="correo"
+                name="correo"
+                placeholder="ejemplo@correo.com"
+                class="w-full bg-panel-2 border border-line px-3 py-2 text-ink placeholder:text-comment focus:border-cyan focus:ring-0 text-xs sm:text-[13px] rounded-none outline-none font-mono"
+                required
+                aria-describedby="err-correo"
+              />
+              <p id="err-correo" class="text-red text-[11px] min-h-[16px]" aria-live="polite"></p>
+            </div>
+
+            <!-- Mensaje -->
+            <div class="space-y-1">
+              <label for="mensaje" class="block font-semibold text-ink">
+                <span class="text-green font-bold">$</span> --message <span class="text-red">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="4"
+                placeholder="Cuéntame sobre tu proyecto o propuesta (mínimo 10 caracteres)..."
+                class="w-full bg-panel-2 border border-line px-3 py-2 text-ink placeholder:text-comment focus:border-cyan focus:ring-0 text-xs sm:text-[13px] rounded-none outline-none font-mono resize-y"
+                required
+                aria-describedby="err-mensaje"
+              ></textarea>
+              <p id="err-mensaje" class="text-red text-[11px] min-h-[16px]" aria-live="polite"></p>
+            </div>
+
+            <!-- Botón Submit -->
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-line">
+              <span class="text-comment text-xs font-mono">
+                [campos con <span class="text-red">*</span> requeridos]
+              </span>
+              <button
+                id="submitBtn"
+                type="submit"
+                class="btn btn--primary text-xs sm:text-sm px-6 py-2.5 font-bold"
+              >
+                <span class="btn__sym text-panel font-bold">$</span> ./enviar-mensaje.sh
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </Window>
+    </div>
+
+    <!-- Ventana Derecha: Canales Directos & Info -->
+    <div class="lg:col-span-4 space-y-4">
+      <Window file="canales-directos.json" badge="JSON">
+        <div class="font-mono text-xs space-y-3">
+          <p class="text-comment">// Alternativas de contacto directo:</p>
+
+          <div class="border border-line bg-panel-2 p-3 space-y-2">
+            <span class="text-cyan font-bold block">1. Correo Electrónico:</span>
+            <a
+              href={`mailto:${profile.email}`}
+              class="text-ink hover:text-cyan transition-colors underline break-all block"
+            >
+              {profile.email}
+            </a>
+          </div>
+
+          <div class="border border-line bg-panel-2 p-3 space-y-2">
+            <span class="text-cyan font-bold block">2. Perfil de LinkedIn:</span>
+            <a
+              href={profile.socials.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-ink hover:text-cyan transition-colors underline break-all block"
+            >
+              linkedin.com/in/eduardo-mar-cruz
+            </a>
+          </div>
+
+          <div class="border border-line bg-panel-2 p-3 space-y-2">
+            <span class="text-cyan font-bold block">3. Teléfono / WhatsApp:</span>
+            <a
+              href={`tel:${profile.phone.replace(/\s+/g, '')}`}
+              class="text-ink hover:text-cyan transition-colors underline break-all block"
+            >
+              {profile.phone}
+            </a>
+          </div>
+
+          <div class="border border-line bg-panel-2 p-3 space-y-2">
+            <span class="text-cyan font-bold block">4. Repositorios GitHub:</span>
+            <a
+              href={profile.socials.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-ink hover:text-cyan transition-colors underline break-all block"
+            >
+              github.com/EduMC14
+            </a>
+          </div>
+
+          <div class="border border-line bg-panel-2 p-3 space-y-1">
+            <span class="text-amber font-bold block">Ubicación y Zona Horaria:</span>
+            <p class="text-muted">Altamira / Tampico, México (CST / UTC-6)</p>
+          </div>
+        </div>
+      </Window>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import Toastify from 'toastify-js';
+  import 'toastify-js/src/toastify.css';
+
+  const form = document.getElementById('contactForm') as HTMLFormElement | null;
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement | null;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  interface ValidationField {
+    id: string;
+    errId: string;
+    msg: string;
+    validate: (val: string) => boolean;
+  }
+
+  const fields: ValidationField[] = [
+    {
+      id: 'nombre',
+      errId: 'err-nombre',
+      msg: 'Por favor escribe tu nombre.',
+      validate: (v: string) => v.trim().length > 0,
+    },
+    {
+      id: 'apellido',
+      errId: 'err-apellido',
+      msg: 'Por favor escribe tu apellido.',
+      validate: (v: string) => v.trim().length > 0,
+    },
+    {
+      id: 'correo',
+      errId: 'err-correo',
+      msg: 'Ingresa un correo electrónico válido.',
+      validate: (v: string) => emailRegex.test(v.trim()),
+    },
+    {
+      id: 'mensaje',
+      errId: 'err-mensaje',
+      msg: 'Cuéntame qué necesitas (mínimo 10 caracteres).',
+      validate: (v: string) => v.trim().length >= 10,
+    },
+  ];
+
+  const showToast = (text: string, isOk: boolean) => {
+    Toastify({
+      text,
+      duration: 3800,
+      gravity: 'bottom',
+      position: 'right',
+      close: true,
+      stopOnFocus: true,
+      style: {
+        background: '#11161d',
+        color: isOk ? '#7ee787' : '#ff7b72',
+        border: `1px solid ${isOk ? '#7ee787' : '#ff7b72'}`,
+        borderRadius: '0px',
+        fontFamily: 'JetBrains Mono, monospace',
+        fontSize: '13px',
+        boxShadow: '0 24px 60px -40px rgba(0,0,0,.9)',
+        padding: '12px 18px',
+      },
+    }).showToast();
+  };
+
+  const validateField = (field: ValidationField): boolean => {
+    const input = document.getElementById(field.id) as HTMLInputElement | HTMLTextAreaElement | null;
+    const errEl = document.getElementById(field.errId);
+    if (!input || !errEl) return true;
+
+    const isValid = field.validate(input.value);
+    if (!isValid) {
+      errEl.textContent = `// error: ${field.msg}`;
+      input.setAttribute('aria-invalid', 'true');
+      input.classList.add('border-red');
+      input.classList.remove('border-line');
+    } else {
+      errEl.textContent = '';
+      input.removeAttribute('aria-invalid');
+      input.classList.remove('border-red');
+      input.classList.add('border-line');
+    }
+    return isValid;
+  };
+
+  // Blur validation
+  fields.forEach((field) => {
+    const input = document.getElementById(field.id);
+    if (input) {
+      input.addEventListener('blur', () => {
+        validateField(field);
+      });
+      input.addEventListener('input', () => {
+        if (input.getAttribute('aria-invalid') === 'true') {
+          validateField(field);
+        }
+      });
+    }
+  });
+
+  // Submit handling
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      let hasError = false;
+      let firstErrorInput: HTMLElement | null = null;
+
+      fields.forEach((field) => {
+        const ok = validateField(field);
+        if (!ok) {
+          hasError = true;
+          if (!firstErrorInput) {
+            firstErrorInput = document.getElementById(field.id);
+          }
+        }
+      });
+
+      if (hasError) {
+        showToast('// error: revisa los campos marcados en rojo', false);
+        if (firstErrorInput) {
+          (firstErrorInput as HTMLElement).focus();
+        }
+        return;
+      }
+
+      // Valid form - disable button during send
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="text-panel">$</span> enviando...';
+      }
+
+      const formData = {
+        name: `${(document.getElementById('nombre') as HTMLInputElement).value} ${(document.getElementById('apellido') as HTMLInputElement).value}`,
+        email: (document.getElementById('correo') as HTMLInputElement).value,
+        subject: 'Contacto desde Portafolio Web (Terminal)',
+        message: (document.getElementById('mensaje') as HTMLTextAreaElement).value,
+      };
+
+      try {
+        // Enviar a la API del portafolio si está activa
+        const res = await fetch('https://serverportfolio-j20a.onrender.com/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+
+        if (res.ok) {
+          showToast('// ok [200]: mensaje transmitido con éxito', true);
+          form.reset();
+        } else {
+          showToast('// ok: mensaje preparado. Si el servidor no responde, escríbeme a eduardomar987@gmail.com', true);
+          form.reset();
+        }
+      } catch (err) {
+        // En caso de corte de red o timeout del servidor externo gratuito
+        showToast('// aviso: servidor externo en reposo. Mensaje copiado; también puedes escribir a eduardomar987@gmail.com', true);
+        form.reset();
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span class="btn__sym text-panel font-bold">$</span> ./enviar-mensaje.sh';
+        }
+      }
+    });
+  }
+</script>

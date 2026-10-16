@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Eduardo Mar</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 14mm 16mm 14mm 16mm;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      line-height: 1.45;
+      font-size: 9pt;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 12pt;
+      border-bottom: 1pt solid #e2e8f0;
+      padding-bottom: 8pt;
+    }
+    .header h1 {
+      font-size: 21pt;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: #0f172a;
+      text-transform: uppercase;
+      margin-bottom: 3pt;
+    }
+    .header .subtitle {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #0369a1;
+      margin-bottom: 5pt;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8pt;
+      font-size: 8.5pt;
+      color: #64748b;
+    }
+    .contact-sep {
+      color: #cbd5e1;
+    }
+
+    /* Section structure */
+    .section {
+      margin-bottom: 11pt;
+    }
+    .section-title {
+      font-size: 10pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #0f172a;
+      border-bottom: 1pt solid #e2e8f0;
+      padding-bottom: 2pt;
+      margin-bottom: 6pt;
+    }
+
+    /* Summary */
+    .summary-text {
+      font-size: 8.8pt;
+      color: #334155;
+      line-height: 1.45;
+      text-align: justify;
+    }
+
+    /* Experience */
+    .job {
+      margin-bottom: 8pt;
+    }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3pt;
+    }
+    .job-role {
+      font-size: 9.6pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .job-company {
+      font-weight: 700;
+      color: #0284c7;
+    }
+    .job-period {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #64748b;
+      white-space: nowrap;
+    }
+
+    /* Bullets */
+    .bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .bullet-list li {
+      position: relative;
+      padding-left: 13pt;
+      font-size: 8.7pt;
+      color: #334155;
+      margin-bottom: 3.5pt;
+      line-height: 1.42;
+      text-align: justify;
+    }
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 3pt;
+      top: -0.5pt;
+      color: #0284c7;
+      font-size: 11pt;
+      font-weight: bold;
+    }
+    .bullet-list li strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    /* Achievement box */
+    .achievement-highlight {
+      background-color: #f0fdf4;
+      border-left: 2.5pt solid #22c55e;
+      padding: 3.5pt 7pt;
+      margin-top: 3pt;
+      margin-bottom: 5pt;
+      font-size: 8.5pt;
+      color: #14532d;
+    }
+    .achievement-highlight strong {
+      color: #15803d;
+      font-weight: 700;
+    }
+
+    /* Skills */
+    .skills-block {
+      display: grid;
+      gap: 3.5pt;
+      font-size: 8.6pt;
+    }
+    .skill-row {
+      display: flex;
+      align-items: baseline;
+      line-height: 1.4;
+    }
+    .skill-cat {
+      width: 140pt;
+      flex-shrink: 0;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .skill-items {
+      color: #334155;
+    }
+
+    /* Footer: Education & Languages */
+    .split-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20pt;
+      margin-top: 2pt;
+    }
+    .split-col {
+      flex: 1;
+    }
+    .edu-item {
+      font-size: 8.6pt;
+      margin-bottom: 2pt;
+    }
+    .edu-title {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .edu-inst {
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="header">
+    <h1>Eduardo Mar</h1>
+    <div class="subtitle">Ingeniero de Software Full Stack · Backend &amp; AI-Assisted Dev</div>
+    <div class="contact-row">
+      <span>(52) 833-466-72-06</span>
+      <span class="contact-sep">·</span>
+      <span>eduardomar987@gmail.com</span>
+      <span class="contact-sep">·</span>
+      <span>eduardomc.onrender.com</span>
+      <span class="contact-sep">·</span>
+      <span>linkedin.com/in/eduardo-mar-cruz</span>
+      <span class="contact-sep">·</span>
+      <span>github.com/EduMC14</span>
+      <span class="contact-sep">·</span>
+      <span>México</span>
+    </div>
+  </header>
+
+  <!-- Perfil Profesional -->
+  <section class="section">
+    <div class="section-title">Perfil Profesional</div>
+    <p class="summary-text">
+      Ingeniero de Software Full Stack con más de 3 años de experiencia en la industria tecnológica. Me especializo en desarrollo backend con <strong>PHP</strong> y colas <strong>RabbitMQ</strong> para procesamiento asíncrono, automatización de tareas con <strong>Puppeteer</strong> y construcción de interfaces web responsivas. Integro activamente herramientas de Inteligencia Artificial (<strong>Antigravity</strong>) y patrones de <strong>Open Design</strong> para acelerar el desarrollo y entregar software modular, seguro y de alta disponibilidad, respaldado por una sólida trayectoria en QA Automation (Cypress, SQL) para garantizar código libre de errores.
+    </p>
+  </section>
+
+  <!-- Experiencia Laboral -->
+  <section class="section">
+    <div class="section-title">Experiencia Laboral</div>
+
+    <!-- Puesto 1 -->
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <span class="job-role">Ingeniero de Desarrollo de Software Jr (Full Stack)</span>
+          <span class="job-company">— BITAM de México</span>
+        </div>
+        <div class="job-period">Sep 2025 – Actualidad</div>
+      </div>
+      <ul class="bullet-list">
+        <li>
+          <strong>Backend &amp; Colas RabbitMQ:</strong> Desarrollo de servicios en PHP y arquitectura asíncrona con colas RabbitMQ para procesar tareas pesadas en segundo plano y sincronizar datos entre múltiples repositorios sin bloquear la interfaz.
+        </li>
+        <li>
+          <strong>Desarrollo Acelerado con IA (Antigravity &amp; Open Design):</strong> Uso de herramientas agénticas de IA como Antigravity y metodologías de Open Design para acelerar el desarrollo de funciones, refactorizar código de forma segura y diseñar componentes modulares.
+        </li>
+        <li>
+          <strong>Automatización con Puppeteer:</strong> Creación de robots para extracción estructurada de datos (JSON) y descarga automatizada de reportes fiscales y opiniones de cumplimiento del SAT.
+        </li>
+        <li>
+          <strong>Full Stack &amp; Formularios Dinámicos:</strong> Desarrollo de interfaces interactivas para clientes finales con generación automática de documentos PDF a partir de datos capturados.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Puesto 2 -->
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <span class="job-role">Ingeniero de Calidad y Pruebas (QA)</span>
+          <span class="job-company">— BITAM de México</span>
+        </div>
+        <div class="job-period">Nov 2022 – Sep 2025</div>
+      </div>
+      <ul class="bullet-list">
+        <li>
+          <strong>Logro Destacado (-30% de Errores):</strong> Diseño e implementación de pruebas automatizadas con Cypress, logrando una reducción del 30% en los errores detectados en producción.
+        </li>
+        <li>
+          <strong>Automatización E2E con Cypress:</strong> Integración de suites continuas de pruebas automatizadas para validar flujos críticos y estabilidad en plataformas web.
+        </li>
+        <li>
+          <strong>Pruebas Backend &amp; Validación SQL:</strong> Auditoría de integridad, lógica de negocio y consistencia de datos mediante consultas avanzadas en bases de datos relacionales (SQL / MySQL).
+        </li>
+        <li>
+          <strong>Estrategia de Calidad &amp; Jira:</strong> Ejecución de pruebas de integración, funcionales y de regresión, gestionando el ciclo de vida de incidencias en Jira junto al equipo de desarrollo.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Habilidades Técnicas -->
+  <section class="section">
+    <div class="section-title">Habilidades Técnicas</div>
+    <div class="skills-block">
+      <div class="skill-row">
+        <span class="skill-cat">Backend &amp; Mensajería:</span>
+        <span class="skill-items">PHP, RabbitMQ (Colas Asíncronas / Workers), Node.js, Express, MySQL / SQL, APIs REST.</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">IA &amp; Metodologías:</span>
+        <span class="skill-items">Antigravity (IA Agéntica), Open Design (Sistemas Modulares y Seguros), Pair Programming con LLMs.</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Automatización &amp; Scraping:</span>
+        <span class="skill-items">Puppeteer (Robots), Generación Automatizada de PDFs, Extracción JSON.</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Frontend &amp; Full Stack:</span>
+        <span class="skill-items">JavaScript (ES6+), TypeScript, React, HTML5, CSS3, Tailwind CSS, Bootstrap.</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">QA &amp; Herramientas:</span>
+        <span class="skill-items">Cypress (E2E Automation), Validación SQL, Postman, Git, GitHub, Jira, Scrum.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Educación e Idiomas -->
+  <div class="split-row">
+    <div class="split-col">
+      <div class="section-title">Educación</div>
+      <div class="edu-item">
+        <span class="edu-title">Ingeniero Industrial</span> — <span class="edu-inst">Universidad del Atlántico (2020 – 2023)</span>
+      </div>
+      <div class="edu-item">
+        <span class="edu-title">Professional in Coding</span> — <span class="edu-inst">DEV.F (2021 – 2022)</span>
+      </div>
+    </div>
+    <div class="split-col" style="flex: 0.75;">
+      <div class="section-title">Idiomas</div>
+      <div class="edu-item">
+        <span class="edu-title">Español:</span> Nativo
+      </div>
+      <div class="edu-item">
+        <span class="edu-title">Inglés:</span> Intermedio (Técnico / Comunicación Profesional)
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
